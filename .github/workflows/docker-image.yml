@@ -22,14 +22,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Output Run ID
-      run: echo ${{ github.run_id }}
     - name: Output Run Number
       run: echo ${{ github.run_number }}
-    - name: Output Run Attempt
-      run: echo ${{ github.run_attempt }}
 
-    
     - name: Build the Docker image
       run: docker build -t hello:latest ./myapp
       
@@ -57,12 +52,15 @@ jobs:
         
     
     - name: commit image
-      run: docker commit -a "hello_vova" hello_vova vova0911/hello:latest
+      run: docker commit -a "hello_vova" hello_vova vova0911/hello:1.0.${{ github.run_number }}
    
       
     - name: show conteiners
       run: docker ps -a
+      
+    - name: show_images
+      run: docker images
 
     - name: push image
-      run: docker push vova0911/hello:latest  
+      run: docker push vova0911/hello:1.0.${{ github.run_number }} 
 
