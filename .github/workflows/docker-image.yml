@@ -55,8 +55,8 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_HUB_U }}
         password: ${{ secrets.DOCKER_HUB_P }}
-        repository: vova0911/hello
-        tags: latest, 1.0.${{ github.run_number }}
+        #repository: vova0911/hello
+        #tags: latest, 1.0.${{ github.run_number }}
    
       
     - name: show conteiners
