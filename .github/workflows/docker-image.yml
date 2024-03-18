@@ -17,3 +17,5 @@ jobs:
     - name: Build the Docker image
       #run: ls
       run: docker build -t hello ./myapp
+	- name: show files
+	  run: ls
