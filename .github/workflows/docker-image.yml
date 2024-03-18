@@ -9,7 +9,7 @@ on:
 jobs:
 
   get_secrets:
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
   	steps:
     - name: Hello world action
       env: 
