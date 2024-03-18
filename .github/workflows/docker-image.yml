@@ -15,6 +15,15 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: ls
+      #run: ls
       run: docker build -t hello ./myapp
+
+  show_files:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: show_files
+      run: ls
+      #run: docker build -t hello ./myapp
+    
 
