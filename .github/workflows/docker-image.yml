@@ -48,9 +48,11 @@ jobs:
    #   run: echo ${{ secrets.DOCKER_HUB_P }} | docker login -u ${{ secrets.DOCKER_HUB_U }} --password-stdin
         
     
-      
     - name: commit image
-      run: docker commit hello_vova vova0911/hello:latest      
+      run: docker commit -a "hello_vova" vova0911/hello:latest  
+      
+    - name: show conteiners
+      run: docker ps -a
 
     - name: push image
       run: docker push vova0911/hello:latest   
