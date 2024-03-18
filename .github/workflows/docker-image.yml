@@ -1,5 +1,8 @@
 name: Docker Image CI
 
+env:
+  run_num: 777
+
 on:
   push:
     branches: [ "master" ]
@@ -29,7 +32,7 @@ jobs:
      #   tags: vova0911/hello:latest
     
     - name: Build the Docker image
-      run: docker build --build-arg BUILD_NUM=${{ github.run_number }} -t hello ./myapp
+      run: docker build --build-arg BUILD_NUM=$run_num -t hello ./myapp
                        
       
     - name: run_images
