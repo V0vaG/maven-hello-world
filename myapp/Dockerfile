@@ -12,6 +12,8 @@ FROM openjdk:11
 #Copy Artifact .jar file from 1st build
 COPY --from=builder /target/myapp-1.0.0.jar .
 
+RUN mv myapp-1.0.0.jar myapp-1.0.1.jar
 #CMD ls
-CMD java -jar myapp-1.0.0.jar
+
+CMD java -jar myapp-1.0.1.jar
 
