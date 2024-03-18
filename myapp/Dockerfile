@@ -6,7 +6,7 @@ ARG BUILD_NUM
 # Copy the Maven project into the Docker image
 COPY . .
 
-RUN sed -i s/<version>1.0.0</version>/<version>1.0.$BUILD_NUM</version>/g ./test.txt
+RUN sed -i 's/<version>1.0.0</version>/<version>1.0.777</version>/g' ./test.txt
 
 
 
