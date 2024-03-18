@@ -11,15 +11,14 @@ env:
   dockerhub_t: ${{ secrets.DOCKER_HUB_T }}
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
+  #  permissions:
+   #   contents: read
+   #   packages: write
       
     steps:
-    - uses: actions/checkout@v3
+  #  - uses: actions/checkout@v3
     
     - name: Output Run Number
       run: echo ${{ github.run_number }}
