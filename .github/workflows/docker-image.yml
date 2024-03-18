@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
   	steps:
     - name: Hello world action
-      with: 
+      env: 
         docker_hub_user: ${{ secrets.DOCKER_HUB_U}}
         docker_hub_pass: ${{ secrets.DOCKER_HUB_p}}
 
