@@ -32,13 +32,13 @@ jobs:
      #   tags: vova0911/hello:latest
     
     - name: Build the Docker image
-      run: docker build --build-arg BUILD_NUM=$run_num -t hello ./myapp
+      run: docker build --build-arg BUILD_NUM=$run_num -t hello:latest ./myapp
              
     - name: SHOW images
       run: docker images
       
     - name: run_images
-      run: docker run --name hello_vova hello
+      run: docker run --name hello_vova hello:latest
       
     - name: commit version
       run: docker commit -a "hello_vova" hello_vova vova0911/hello:1.0.${{ github.run_number }}
