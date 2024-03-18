@@ -34,17 +34,15 @@ jobs:
     - name: run_images
       run: docker run --name hello_vova hello
       
-  #  - name: commit version
-  #    run: docker commit -a "hello_vova" hello_vova vova0911/hello:1.0.${{ github.run_number }}
+    - name: commit version
+      run: docker commit -a "hello_vova" hello_vova vova0911/hello:1.0.${{ github.run_number }}
       
     - name: commit latest
       run: docker commit -a "hello_vova" hello_vova vova0911/hello:latest
-      
 
-
-#    - name: push version
-#      run: docker push vova0911/hello:1.0.${{ github.run_number }}
+    - name: push version
+      run: docker push vova0911/hello:1.0.${{ github.run_number }}
       
- #   - name: push latest
-  #    run: docker push vova0911/hello:latest
+    - name: push latest
+      run: docker push vova0911/hello:latest
 
