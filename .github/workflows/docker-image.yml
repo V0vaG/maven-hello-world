@@ -49,7 +49,7 @@ jobs:
         
     
     - name: commit image
-      run: docker commit -a "hello_vova" vova0911/hello_vova  
+      run: docker commit -a "hello_vova" hello_vova  
       
     - name: show conteiners
       run: docker ps -a
