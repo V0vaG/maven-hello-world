@@ -38,7 +38,7 @@ jobs:
         password: ${{ secrets.DOCKER_HUB_P }}
         
     - name: run_images
-      run: docker run -it hello:latest
+      run: docker run hello:latest
       
    # - name: commit image
     #  run: docker commit hello:latest vova0911/hello:latest      
