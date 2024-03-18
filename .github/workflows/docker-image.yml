@@ -29,14 +29,7 @@ jobs:
     - name: show_images
       run: docker images
     
-    #- name: DockerHub_login
-    #  run: 'echo $dockerhub_p | docker login -u $dockerhub_u --password-stdin'
-      
-    #- name: Push_image_2_dockerhub
-    #  run: 'docker commit -a "Pipeline" weather_pipeline-app-1 vova0911/hello:latest'
-
-
-  dockerhub:
+  login_2_dockerhub:
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -53,4 +46,11 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_U }}
           password: ${{ secrets.DOCKER_HUB_P }}
+  push_2_dockerhub:
+    runs-on: ubuntu-latest
+        
+    steps:
+    - uses: actions/checkout@v3
+    - name: commit image
+      run: docker commit -a "Pipeline" hello vova0911/hello:latest      
 
