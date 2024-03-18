@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
   	steps:
     - name: Hello world action
-    with: # Set the secret as an input
-      docker_hub_user: ${{ secrets.DOCKER_HUB_U}}
-      docker_hub_pass: ${{ secrets.DOCKER_HUB_p}}
+      with: 
+        docker_hub_user: ${{ secrets.DOCKER_HUB_U}}
+        docker_hub_pass: ${{ secrets.DOCKER_HUB_p}}
 
 
   build:
