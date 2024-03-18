@@ -56,5 +56,5 @@ jobs:
       run: docker ps -a
 
     - name: push image
-      run: docker push vova0911/hello_vova   
+      run: docker push vova0911/hello:latest  
 
