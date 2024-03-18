@@ -15,7 +15,6 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    
     permissions:
       contents: read
       packages: write
@@ -37,10 +36,13 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_HUB_U }}
         password: ${{ secrets.DOCKER_HUB_P }}
+        
+    - name: run_images
+      run: docker run -it hello:latest
+      
+   # - name: commit image
+    #  run: docker commit hello:latest vova0911/hello:latest      
 
-    #- name: commit image
-      #run: docker commit hello:latest vova0911/hello:latest      
-
-    - name: push image
-      run: docker push vova0911/hello:latest   
+    #- name: push image
+    #  run: docker push vova0911/hello:latest   
 
