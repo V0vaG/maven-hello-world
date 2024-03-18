@@ -13,21 +13,15 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-  #  permissions:
-   #   contents: read
-   #   packages: write
-      
+     
     steps:
     - uses: actions/checkout@v3
     
-   # - name: Output Run Number
-    #  run: echo ${{ github.run_number }}
-
     - name: Build the Docker image
       run: docker build --build-arg BUILD_NUM=${{ github.run_number }} -t hello:latest ./myapp
     
-    - name: Checkout
-      uses: actions/checkout@v4
+  #  - name: Checkout
+   #   uses: actions/checkout@v4
       
     - name: run_images
       run: docker run --name hello_vova hello:latest
