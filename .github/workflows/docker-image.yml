@@ -1,7 +1,7 @@
 name: Docker Image CI
 
 env:
-  run_num: 777
+  run_num: ${{ github.run_number }}
 
 on:
   push:
