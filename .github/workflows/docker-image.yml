@@ -44,7 +44,7 @@ jobs:
       run: echo $dockerhub_p
       
     - uses: actions/checkout@v3
-    - name: print_image
-      run: echo $IMAGE_NAME
+    - name: show_images
+      run: docker images
       
 
