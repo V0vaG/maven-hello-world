@@ -24,9 +24,6 @@ jobs:
     
     - name: Build the Docker image
       run: docker build --build-arg BUILD_NUM=$run_num -t hello:latest ./myapp
-             
-    - name: SHOW images
-      run: docker images
       
     - name: run_images
       run: docker run --name hello_vova hello:latest
