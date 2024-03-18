@@ -1,8 +1,14 @@
 # Use Maven as the base image
 FROM maven:openjdk as builder
 
+
+RUN adduser vova
+
+# Set the non-root user as the default user
+USER vova
+
 # Copy the Maven project into the Docker image
-COPY . .
+#COPY . .
 
 # Run the build
 RUN mvn package
