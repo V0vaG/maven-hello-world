@@ -9,7 +9,9 @@ on:
 jobs:
 
   build:
+
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
@@ -20,10 +22,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: show_files
-      run: ls
-      docker_hub_user: ${{ secrets.DOCKER_HUB_U}}
-      docker_hub_pass: ${{ secrets.DOCKER_HUB_p}}
-      #run: docker build -t hello ./myapp
+    - name: Build the Docker image
+      run: docker build -t hello ./myapp
+      
+  run_image:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker run -it hello
     
 
