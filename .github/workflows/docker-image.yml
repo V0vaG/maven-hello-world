@@ -29,27 +29,18 @@ jobs:
     - name: show_images
       run: docker images
     
-  login_2_dockerhub:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - ubuntu-latest
-    steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v4
-      -
-        name: Login to Docker Hub
-        uses: actions/checkout@v4
-        with:
-          username: ${{ secrets.DOCKER_HUB_U }}
-          password: ${{ secrets.DOCKER_HUB_P }}
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Login to Docker Hub
+      uses: actions/checkout@v4
+      with:
+        username: ${{ secrets.DOCKER_HUB_U }}
+        password: ${{ secrets.DOCKER_HUB_P }}
 
-     - name: commit image
-       run: docker commit -a "Pipeline" hello:latest vova0911/hello:latest      
+    - name: commit image
+      run: docker commit -a "Pipeline" hello:latest vova0911/hello:latest      
 
-     - name: push image
-       run: docker push vova0911/hello:latest   
+    - name: push image
+      run: docker push vova0911/hello:latest   
 
