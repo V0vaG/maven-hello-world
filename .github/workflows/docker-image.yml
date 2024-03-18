@@ -46,6 +46,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_U }}
           password: ${{ secrets.DOCKER_HUB_P }}
+          
   push_2_dockerhub:
     runs-on: ubuntu-latest
         
@@ -53,7 +54,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: commit image
       run: docker commit -a "Pipeline" hello:latest vova0911/hello:latest      
-      
+
     steps:
     - uses: actions/checkout@v3
     - name: push image
