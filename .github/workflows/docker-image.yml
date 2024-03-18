@@ -53,11 +53,11 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_U }}
         password: ${{ secrets.DOCKER_HUB_T }}
 
-    - name: Build and push
-      uses: docker/build-push-action@v5
-      with:
-        push: true
-        tags: vova0911/hello:latest
+   # - name: Build and push
+   #   uses: docker/build-push-action@v5
+    #  with:
+     #   push: true
+     #   tags: vova0911/hello:latest
 
 
       
