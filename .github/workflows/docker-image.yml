@@ -8,10 +8,17 @@ on:
 
 jobs:
 
+  get_secrets:
+  	steps:
+  	runs-on: ubuntu-latest
+    - name: Hello world action
+    with: # Set the secret as an input
+      docker_hub_user: ${{ secrets.DOCKER_HUB_U}}
+      docker_hub_pass: ${{ secrets.DOCKER_HUB_p}}
+
+
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
