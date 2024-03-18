@@ -9,6 +9,7 @@ on:
 env:
   dockerhub_u: ${{ secrets.DOCKER_HUB_U }}
   dockerhub_p: ${{ secrets.DOCKER_HUB_P }}
+  dockerhub_t: ${{ secrets.DOCKER_HUB_T }}
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
@@ -50,7 +51,7 @@ jobs:
       uses: docker/login-action@v3
       with:
         username: ${{ secrets.DOCKER_HUB_U }}
-        password: ${{ secrets.DOCKER_HUB_P }}
+        password: ${{ secrets.DOCKER_HUB_T }}
 
     - name: Build and push
       uses: docker/build-push-action@v5
