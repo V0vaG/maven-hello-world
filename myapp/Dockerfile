@@ -15,3 +15,5 @@ COPY --from=builder /target/myapp-1.0.0.jar .
 #CMD ls
 CMD java -jar myapp-1.0.0.jar
 
+#
+
