@@ -49,7 +49,8 @@ jobs:
         
     
     - name: commit image
-      run: docker commit -a "hello_vova" hello_vova  
+      run: docker commit -a "hello_vova" hello_vova vova0911/hello:latest
+   
       
     - name: show conteiners
       run: docker ps -a
