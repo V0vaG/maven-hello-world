@@ -29,10 +29,10 @@ jobs:
      #   tags: vova0911/hello:latest
     
     - name: Build the Docker image
+      run: docker build --build-arg BUILD_NUM=${{ github.run_number }} -t hello ./myapp
         context: . 
         build-args: |
           BUILD_NUM=${{ github.run_number }}
-      run: docker build --build-arg BUILD_NUM=${{ github.run_number }} -t hello ./myapp
       
     - name: run_images
       run: docker run --name hello_vova hello
