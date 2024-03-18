@@ -8,15 +8,6 @@ on:
 
 jobs:
 
-  get_secrets:
-    #runs-on: ubuntu-latest
-  	steps:
-    - name: Hello world action
-      env: 
-        docker_hub_user: ${{ secrets.DOCKER_HUB_U}}
-        docker_hub_pass: ${{ secrets.DOCKER_HUB_p}}
-
-
   build:
     runs-on: ubuntu-latest
     steps:
@@ -31,6 +22,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: show_files
       run: ls
+      docker_hub_user: ${{ secrets.DOCKER_HUB_U}}
+      docker_hub_pass: ${{ secrets.DOCKER_HUB_p}}
       #run: docker build -t hello ./myapp
     
 
