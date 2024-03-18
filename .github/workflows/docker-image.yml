@@ -30,7 +30,11 @@ jobs:
       run: docker images
     
     - name: DockerHub_login
-      run: echo $dockerhub_p | docker login -u $dockerhub_u --password-stdin
+      run: 'echo $dockerhub_p | docker login -u $dockerhub_u --password-stdin'
+      
+    - name: Push_image_2_dockerhub
+      run: 'docker commit -a "Pipeline" weather_pipeline-app-1 vova0911/hello:latest'
+     
       
 
   show_env:
