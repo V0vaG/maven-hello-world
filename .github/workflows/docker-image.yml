@@ -6,9 +6,9 @@ on:
   pull_request:
     branches: [ "master" ]
     
-env:
-  dockerhub_u: ${{ secrets.DOCKER_HUB_U }}
-  dockerhub_t: ${{ secrets.DOCKER_HUB_T }}
+#env:
+#  dockerhub_u: ${{ secrets.DOCKER_HUB_U }}
+#  dockerhub_t: ${{ secrets.DOCKER_HUB_T }}
 
 jobs:
   build:
@@ -19,9 +19,6 @@ jobs:
     
     - name: Build the Docker image
       run: docker build --build-arg BUILD_NUM=${{ github.run_number }} -t hello:latest ./myapp
-    
-  #  - name: Checkout
-   #   uses: actions/checkout@v4
       
     - name: run_images
       run: docker run --name hello_vova hello:latest
