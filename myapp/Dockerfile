@@ -1,22 +1,22 @@
 # Use Maven as the base image
 FROM maven:openjdk as builder
 
-ARG BUILD_NUM
-
 # Copy the Maven project into the Docker image
 COPY . .
 
 # Run the build
 RUN mvn package
 
-FROM openjdk:11
+# Use Java 17 as the base for the 2nd stage build
+FROM openjdk:17-jdk-slim
 
+# Pass the build num argument from the workflow to the dockerfile
 ARG BUILD_NUM
 
 #Copy Artifact .jar file from 1st build
 COPY --from=builder /target/myapp-1.0.0.jar .
 
-
+# Rename add the .jar file_name the build_number
 RUN mv myapp-1.0.0.jar myapp-1.0.$BUILD_NUM.jar
 
 #CMD ls
