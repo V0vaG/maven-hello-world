@@ -22,18 +22,16 @@ jobs:
       
     steps:
     - uses: actions/checkout@v3
+    
     - name: Build the Docker image
       run: docker build -t hello ./myapp
-    - name: cccxxx
+      
+    - name: show_images
       run: docker images
-
-
-  show_files:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: ls command
-      run: ls
+    
+    - name: DockerHub_login
+      run: echo $dockerhub_p | docker login -u $dockerhub_u --password-stdin
+      
 
   show_env:
     runs-on: ubuntu-latest
