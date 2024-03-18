@@ -19,26 +19,29 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_U }}
         password: ${{ secrets.DOCKER_HUB_T }}
         
-    - name: Build and push
-      uses: docker/build-push-action@v2
-      with:
+  #  - name: Build and push
+  #    uses: docker/build-push-action@v2
+ #     with:
+ #       context: . 
+ #       build-args: |
+     #     BUILD_NUM=${{ github.run_number }}
+     #   push: true
+     #   tags: vova0911/hello:latest
+    
+    - name: Build the Docker image
         context: . 
         build-args: |
           BUILD_NUM=${{ github.run_number }}
-        push: true
-        tags: vova0911/hello:latest
-    
- #   - name: Build the Docker image
- #     run: docker build --build-arg BUILD_NUM=${{ github.run_number }} -t hello ./myapp
+      run: docker build --build-arg BUILD_NUM=${{ github.run_number }} -t hello ./myapp
       
-  #  - name: run_images
-   #   run: docker run --name hello_vova hello
+    - name: run_images
+      run: docker run --name hello_vova hello
       
   #  - name: commit version
   #    run: docker commit -a "hello_vova" hello_vova vova0911/hello:1.0.${{ github.run_number }}
       
-  #  - name: commit latest
-  #    run: docker commit -a "hello_vova" hello_vova vova0911/hello:latest
+    - name: commit latest
+      run: docker commit -a "hello_vova" hello_vova vova0911/hello:latest
       
 
 
