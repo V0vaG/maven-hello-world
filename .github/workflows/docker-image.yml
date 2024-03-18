@@ -22,7 +22,7 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v2
       with:
-        context: .
+        context: . 
         build-args: |
           BUILD_NUM=${{ github.run_number }}
         push: true
