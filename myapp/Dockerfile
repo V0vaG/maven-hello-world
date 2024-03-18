@@ -20,7 +20,7 @@ ARG BUILD_NUM
 #Copy Artifact .jar file from 1st build
 COPY --from=builder /target/myapp-1.0.0.jar .
 
-run mv myapp-1.0.0.jar 12myapp-1.0.${{ github.run_number }}.jar
+RUN mv myapp-1.0.0.jar 13myapp-1.0.${{ github.run_number }}.jar
 
 CMD ls
 
