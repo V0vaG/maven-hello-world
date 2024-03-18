@@ -38,7 +38,7 @@ jobs:
         password: ${{ secrets.DOCKER_HUB_P }}
         
     - name: run_images
-      run: docker run hello:latest
+      run: docker run --name flag hello_vova hello:latest
       
     - name: show conteiners
       run: docker ps -a
