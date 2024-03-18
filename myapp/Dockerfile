@@ -19,7 +19,7 @@ COPY --from=builder /target/myapp-1.0.0.jar .
 
 RUN mv myapp-1.0.0.jar myapp-1.0.$BUILD_NUM.jar
 
-RUN ls
+CMD ls
 
 # CMD java -jar *
 
