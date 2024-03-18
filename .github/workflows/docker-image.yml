@@ -45,7 +45,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_HUB_U }}
         password: ${{ secrets.DOCKER_HUB_P }}
-        repositort: vova0911/hello
+        repository: vova0911/hello
         tags: ${{ github.run_number }}
         
    # - uses: actions/checkout@v1
