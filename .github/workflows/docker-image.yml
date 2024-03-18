@@ -40,6 +40,9 @@ jobs:
     - name: run_images
       run: docker run hello:latest
       
+    - name: show conteiners
+      run: docker ps -a
+      
    # - name: commit image
     #  run: docker commit hello:latest vova0911/hello:latest      
 
