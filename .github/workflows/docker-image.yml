@@ -8,6 +8,7 @@ on:
     
 env:
   dockerhub_u: ${{ secrets.DOCKER_HUB_U }}
+  dockerhub_p: ${{ secrets.DOCKER_HUB_P }}
 
 jobs:
 
@@ -24,10 +25,12 @@ jobs:
     - uses: actions/checkout@v3
     - name: ls command
       run: ls
+
   show_enc:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: print
       run: echo $dockerhub_u
+      run: echo $dockerhub_p
 
