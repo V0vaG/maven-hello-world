@@ -16,12 +16,6 @@ RUN mvn package
 # Use Java 17 as the base for the 2nd stage build
 FROM openjdk:17-jdk-slim
 
-# Add new user
-RUN adduser vova
-
-# Set the non-root user as the default user
-USER vova
-
 # Pass the build num argument from the workflow to the dockerfile
 ARG BUILD_NUM
 
@@ -30,6 +24,12 @@ COPY --from=builder /target/myapp-1.0.0.jar .
 
 # Rename add the .jar file_name the build_number
 RUN mv myapp-1.0.0.jar myapp-1.0.$BUILD_NUM.jar
+
+# Add new user
+RUN adduser vova
+
+# Set the non-root user as the default user
+USER vova
 
 #CMD ls
 CMD whoami
