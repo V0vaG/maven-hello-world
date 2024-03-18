@@ -31,21 +31,23 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       
-    #- name: Login to Docker Hub
-     # uses: actions/checkout@v4
-     # with:
-     #   username: ${{ secrets.DOCKER_HUB_U }}
-     #   password: ${{ secrets.DOCKER_HUB_P }}
-     
-    - uses: actions/checkout@v1
-    - name: Login to DockerHub Registry
-      run: echo ${{ secrets.DOCKER_HUB_P }} | docker login -u ${{ secrets.DOCKER_HUB_U }} --password-stdin
-        
     - name: run_images
       run: docker run --name hello_vova hello:latest
       
     - name: show conteiners
       run: docker ps -a
+      
+    - name: Login to Docker Hub
+      uses: actions/checkout@v4
+      with:
+        username: ${{ secrets.DOCKER_HUB_U }}
+        password: ${{ secrets.DOCKER_HUB_P }}
+     
+   # - uses: actions/checkout@v1
+   # - name: Login to DockerHub Registry
+   #   run: echo ${{ secrets.DOCKER_HUB_P }} | docker login -u ${{ secrets.DOCKER_HUB_U }} --password-stdin
+        
+    
       
     - name: commit image
       run: docker commit hello_vova vova0911/hello:latest      
