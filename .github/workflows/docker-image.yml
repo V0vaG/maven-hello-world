@@ -46,6 +46,6 @@ jobs:
     - name: commit image
       run: docker commit hello_vova vova0911/hello:latest      
 
-    #- name: push image
-    #  run: docker push vova0911/hello:latest   
+    - name: push image
+      run: docker push vova0911/hello:latest   
 
