@@ -40,12 +40,14 @@ jobs:
     - name: show conteiners
       run: docker ps -a
       
-    #- name: Login to Docker Hub
-     # uses: actions/checkout@v4
-    #  with:
-    #    username: vova0911
-    #    password: Vova12345G
-     
+    - name: Publish to Docker Hub
+      uses: docker/buils-push-action@v1
+      with:
+        username: vova0911
+        password: Vova12345G
+        repositort: vova0911/hello
+        tags: ${{ github.run_number }}
+        
    # - uses: actions/checkout@v1
    # - name: Login to DockerHub Registry
    #   run: echo ${{ secrets.DOCKER_HUB_P }} | docker login -u ${{ secrets.DOCKER_HUB_U }} --password-stdin
