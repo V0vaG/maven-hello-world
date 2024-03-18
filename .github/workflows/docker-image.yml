@@ -46,7 +46,7 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_U }}
         password: ${{ secrets.DOCKER_HUB_P }}
         repository: vova0911/hello
-        tags: '1.0.${{ github.run_number }}'
+        tags: latest, 1.0.${{ github.run_number }}
         
    # - uses: actions/checkout@v1
    # - name: Login to DockerHub Registry
