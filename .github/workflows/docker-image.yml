@@ -34,7 +34,7 @@ jobs:
     - name: Login to Docker Hub
       uses: actions/checkout@v4
       with:
-        registry: ghcr.io
+        with: docker/login-action@v3
         username: ${{ secrets.DOCKER_HUB_U }}
         password: ${{ secrets.DOCKER_HUB_P }}
         
