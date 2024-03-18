@@ -12,9 +12,13 @@ jobs:
      
     steps:
     - uses: actions/checkout@v3
-    
+      with:
+        context: .
+        build-args: |
+          BUILD_NUM=${{ github.run_number }} 
     - name: Build the Docker image
-      run: 'docker build --build-arg BUILD_NUM=${{ github.run_number }} -t hello ./myapp'
+      
+      run: docker build --build-arg BUILD_NUM=${{ github.run_number }} -t hello ./myapp
       
     - name: run_images
       run: docker run --name hello_vova hello
