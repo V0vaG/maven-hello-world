@@ -42,7 +42,7 @@ jobs:
       run: docker ps -a
       
     - name: commit image
-      run: docker commit -a "hello_vova" hello_vova vova0911/hello:latest
+      run: docker commit -a "hello_vova" hello_vova vova0911/hello:${{ github.run_number }}
       
       
       
@@ -68,5 +68,5 @@ jobs:
       run: docker images
 
     - name: push image
-      run: docker push vova0911/hello:latest 
+      run: docker push vova0911/hello:${{ github.run_number }}
 
