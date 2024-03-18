@@ -26,7 +26,7 @@ jobs:
         build-args: |
           BUILD_NUM=${{ github.run_number }}
         push: true
-        tags: vova0911/hello:1.0.${{ github.run_number }}, vova0911/hello:latest
+        tags: vova0911/hello:1.0.${{ github.run_number }}
     
     #- name: Build the Docker image
     #  run: docker build --build-arg BUILD_NUM=${{ github.run_number }} -t hello ./myapp
