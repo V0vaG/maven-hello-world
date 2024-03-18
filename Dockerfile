@@ -1,4 +1,4 @@
-FROM vova0911/hello:1.0.134
+FROM vova0911/hello:latest
 
 
 #CMD java -jar './myapp-1.0.134.jar'
