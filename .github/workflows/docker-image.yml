@@ -9,8 +9,8 @@ on:
 jobs:
 
   get_secrets:
+    runs-on: ubuntu-latest
   	steps:
-  	runs-on: ubuntu-latest
     - name: Hello world action
     with: # Set the secret as an input
       docker_hub_user: ${{ secrets.DOCKER_HUB_U}}
