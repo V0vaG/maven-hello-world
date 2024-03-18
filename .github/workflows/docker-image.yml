@@ -40,11 +40,11 @@ jobs:
     - name: show conteiners
       run: docker ps -a
       
-    - name: Login to Docker Hub
-      uses: actions/checkout@v4
-      with:
-        username: vova0911
-        password: Vova12345G
+    #- name: Login to Docker Hub
+     # uses: actions/checkout@v4
+    #  with:
+    #    username: vova0911
+    #    password: Vova12345G
      
    # - uses: actions/checkout@v1
    # - name: Login to DockerHub Registry
