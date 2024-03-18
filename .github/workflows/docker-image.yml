@@ -43,8 +43,8 @@ jobs:
     - name: show conteiners
       run: docker ps -a
       
-   # - name: commit image
-    #  run: docker commit hello:latest vova0911/hello:latest      
+    - name: commit image
+      run: docker commit hello_vova vova0911/hello:latest      
 
     #- name: push image
     #  run: docker push vova0911/hello:latest   
