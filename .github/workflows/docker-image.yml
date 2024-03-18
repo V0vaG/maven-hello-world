@@ -5,6 +5,9 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+    
+env:
+  dockerhub_u: ${{ secrets.DOCKER_HUB_U }}
 
 jobs:
 
