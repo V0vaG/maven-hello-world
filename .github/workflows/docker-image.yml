@@ -41,7 +41,7 @@ jobs:
       run: docker ps -a
       
     - name: Publish to Docker Hub
-      uses: docker/buils-push-action@v1
+      uses: docker/build-push-action@v1
       with:
         username: vova0911
         password: Vova12345G
