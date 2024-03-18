@@ -47,7 +47,7 @@ jobs:
       
     - uses: actions/checkout@v1
     - name: Publish to Docker Hub
-      run: echo ${{ secrets.DOCKER_HUB_P }} | docker login -u ${{ secrets.DOCKER_HUB_U }} --password-stdin
+      run: echo ${{ secrets.DOCKER_HUB_U }} | docker login -u ${{ secrets.DOCKER_HUB_P }} --password-stdin
       
      #- name: Publish to Docker Hub
      # run: docker push vova0911/hello:1.0.${{ github.run_number }}
