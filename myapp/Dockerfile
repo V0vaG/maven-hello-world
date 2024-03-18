@@ -26,7 +26,7 @@ COPY --from=builder /target/myapp-1.0.0.jar .
 RUN mv myapp-1.0.0.jar myapp-1.0.$BUILD_NUM.jar
 
 # Add new user
-RUN adduser vova-Kepler
+RUN adduser 'vova-Kepler'
 
 # Set the non-root user as the default user
 USER vova-Kepler
