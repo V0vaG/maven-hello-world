@@ -2,6 +2,10 @@ name: Docker Image CI
 
 env:
   run_num: ${{ github.run_number }}
+  # Get your host's UID and GID
+  HOST_UID=$(id -u)
+  HOST_GID=$(id -g)
+
 
 on:
   push:
