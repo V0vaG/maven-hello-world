@@ -40,13 +40,7 @@ jobs:
     - name: show conteiners
       run: docker ps -a
       
-    - name: Publish to Docker Hub
-      uses: docker/build-push-action@v3
-      with:
-        username: ${{ secrets.DOCKER_HUB_U }}
-        password: ${{ secrets.DOCKER_HUB_P }}
-        repository: vova0911/hello
-        tags: latest, 1.0.${{ github.run_number }}
+    
         
    # - uses: actions/checkout@v1
    # - name: Login to DockerHub Registry
@@ -55,6 +49,14 @@ jobs:
     
     - name: commit image
       run: 'docker commit -a "hello_vova" hello_vova vova0911/hello:1.0.${{ github.run_number }}'
+      
+    - name: Publish to Docker Hub
+      uses: docker/build-push-action@v3
+      with:
+        username: ${{ secrets.DOCKER_HUB_U }}
+        password: ${{ secrets.DOCKER_HUB_P }}
+        repository: vova0911/hello
+        tags: latest, 1.0.${{ github.run_number }}
    
       
     - name: show conteiners
