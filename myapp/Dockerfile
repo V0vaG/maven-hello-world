@@ -17,10 +17,10 @@ RUN mvn package
 FROM openjdk:17-jdk-slim
 
 # Add new user
-#RUN adduser vova
+RUN adduser vova
 
 # Set the non-root user as the default user
-#USER vova
+USER vova
 
 # Pass the build num argument from the workflow to the dockerfile
 ARG BUILD_NUM
