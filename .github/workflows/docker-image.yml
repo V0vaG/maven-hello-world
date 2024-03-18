@@ -43,8 +43,8 @@ jobs:
     - name: Publish to Docker Hub
       uses: docker/build-push-action@v1
       with:
-        username: vova0911
-        password: Vova12345G
+        username: ${{ secrets.DOCKER_HUB_U }}
+        password: ${{ secrets.DOCKER_HUB_P }}
         repositort: vova0911/hello
         tags: ${{ github.run_number }}
         
