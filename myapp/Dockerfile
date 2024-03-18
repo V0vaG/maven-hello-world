@@ -31,8 +31,8 @@ RUN adduser vova-kepler
 # Set the non-root user as the default user
 USER vova-kepler
 
-#CMD ls
-CMD whoami
+CMD ls
+#CMD whoami
 #CMD java -jar *.jar
 
 
