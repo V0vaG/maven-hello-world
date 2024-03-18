@@ -49,11 +49,11 @@ jobs:
     - name: Login to DockerHub Registry
       run: echo ${{ secrets.DOCKER_HUB_P }} | docker login -u ${{ secrets.DOCKER_HUB_U }} --password-stdin
       
-    #- name: Publish to Docker Hub
+     #- name: Publish to Docker Hub
      # run: docker push vova0911/hello:1.0.${{ github.run_number }}
-      #with:
+     #with:
      #   username: ${{ secrets.DOCKER_HUB_U }}
-      #  password: ${{ secrets.DOCKER_HUB_P }}
+     #  password: ${{ secrets.DOCKER_HUB_P }}
         #repository: vova0911/hello
         #tags: latest, 1.0.${{ github.run_number }}
    
