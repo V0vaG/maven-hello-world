@@ -9,6 +9,7 @@ on:
 env:
   dockerhub_u: ${{ secrets.DOCKER_HUB_U }}
   dockerhub_p: ${{ secrets.DOCKER_HUB_P }}
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
 
@@ -30,7 +31,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: print
+    - name: print_p
       run: echo $dockerhub_u
+
+    - uses: actions/checkout@v3
+    - name: print_u
       run: echo $dockerhub_p
+      
 
