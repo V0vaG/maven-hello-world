@@ -52,5 +52,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: commit image
-      run: docker commit -a "Pipeline" hello vova0911/hello:latest      
+      run: docker commit -a "Pipeline" hello:latest vova0911/hello:latest      
+      
+    steps:
+    - uses: actions/checkout@v3
+    - name: push image
+      run: docker push vova0911/hello:latest   
 
