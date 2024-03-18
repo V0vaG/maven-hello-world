@@ -17,7 +17,7 @@ jobs:
       run: docker build --build-arg BUILD_NUM=${{ github.run_number }} -t hello:1.0.${{ github.run_number }} ./myapp
       
     - name: run_images
-      run: docker run --name hello_vova hello:1.0.${{ github.run_number }}
+      run: docker run --name hello_vova 'hello:1.0.${{ github.run_number }}'
       
     - name: commit image
       run: docker commit -a "hello_vova" hello_vova vova0911/hello:1.0.${{ github.run_number }}
