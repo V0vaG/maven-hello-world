@@ -39,7 +39,7 @@ jobs:
      
     - uses: actions/checkout@v1
     - name: Login to DockerHub Registry
-    run: echo ${{ secrets.DOCKER_HUB_P }} | docker login -u ${{ secrets.DOCKER_HUB_U }} --password-stdin
+      run: echo ${{ secrets.DOCKER_HUB_P }} | docker login -u ${{ secrets.DOCKER_HUB_U }} --password-stdin
         
     - name: run_images
       run: docker run --name hello_vova hello:latest
