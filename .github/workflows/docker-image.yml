@@ -26,7 +26,7 @@ jobs:
         build-args: |
           BUILD_NUM=${{ github.run_number }}
         push: true
-        tags: vova0911/hello:1.0.${{ github.run_number }}
+        tags: vova0911/hello:1.0.${{ github.run_number }}, vova0911/hello:latest
     
     #- name: Build the Docker image
     #  run: docker build --build-arg BUILD_NUM=${{ github.run_number }} -t hello ./myapp
@@ -34,11 +34,11 @@ jobs:
     #- name: run_images
     #  run: docker run --name hello_vova hello
       
-    - name: commit version
-      run: docker commit -a "hello_vova" hello_vova vova0911/hello:1.0.${{ github.run_number }}
+  #  - name: commit version
+  #    run: docker commit -a "hello_vova" hello_vova vova0911/hello:1.0.${{ github.run_number }}
       
-    - name: commit latest
-      run: docker commit -a "hello_vova" hello_vova vova0911/hello:latest
+  #  - name: commit latest
+   #   run: docker commit -a "hello_vova" hello_vova vova0911/hello:latest
       
 
 
