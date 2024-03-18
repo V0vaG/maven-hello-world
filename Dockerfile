@@ -1,5 +1,5 @@
-FROM vova0911/hello:1.0.130
+FROM vova0911/hello:1.0.133
 
 
-#CMD java -jar './myapp-1.0.$BUILD_NUM.jar'
+#CMD java -jar './myapp-1.0.133.jar'
 CMD ls
