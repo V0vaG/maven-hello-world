@@ -30,14 +30,14 @@ jobs:
       uses: docker/login-action@v3
       with:
         username: ${{ secrets.DOCKER_HUB_U }}
-        password: ${{ secrets.DOCKER_HUB_T }}        
+        password: ${{ secrets.DOCKER_HUB_T }}     
+        
+    - name: tag latest
+      run: docker tag hello:latest vova0911/hello:latest
     
     - name: tag version
       run: docker tag hello:latest vova0911/hello:$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM
-      
-    - name: tag latest
-      run: docker tag hello:latest vova0911/hello:latest
-     
+
     - name: push version
       run: docker push vova0911/hello:$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM  
       
