@@ -26,5 +26,5 @@ USER vova-kepler
 #CMD java -jar *.jar
 RUN ls
 RUN whoami
-ENTRYPOINT java -jar *.jar
+RUN java -jar *.jar
 
