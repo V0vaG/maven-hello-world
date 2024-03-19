@@ -1,5 +1,4 @@
-# Hello, my name is Vladimir Glayzer
-    This project used :
+  This project used :
     - Maven as a building tool for the java code
     
     - GitHub us a VCS 
