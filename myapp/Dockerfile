@@ -5,6 +5,7 @@ FROM maven:openjdk as base
 ARG MAJOR_NUM
 ARG MINOR_NUM
 ARG PATCH_NUM
+
 # Copy the Maven project into the Docker image
 COPY . .
 
@@ -24,7 +25,6 @@ RUN mvn package
 FROM openjdk:17-jdk-slim
 
 # Pass the build num argument from the workflow to the dockerfile
-
 ARG MAJOR_NUM
 ARG MINOR_NUM
 ARG PATCH_NUM
