@@ -27,14 +27,15 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_U }}
         password: ${{ secrets.DOCKER_HUB_T }}        
     
-    - name: tag latest
-      run: docker tag hello:latest vova0911/hello:latest
-      
     - name: tag version
       run: docker tag hello:latest vova0911/hello:1.0.${{ github.run_number }}
+      
+    - name: tag latest
+      run: docker tag hello:latest vova0911/hello:latest
+     
+    - name: push version
+      run: docker push vova0911/hello:1.0.${{ github.run_number }}  
       
     - name: push latest
       run: docker push vova0911/hello:latest
       
-    - name: push version
-      run: docker push vova0911/hello:1.0.${{ github.run_number }}
