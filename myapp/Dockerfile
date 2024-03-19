@@ -1,4 +1,4 @@
-# Use ubuntu as the base image
+# Use Maven as the base image
 FROM maven:openjdk as base
 
 # Pass the build num argument from the workflow to the dockerfile
@@ -10,7 +10,7 @@ COPY . .
 # Run script to set the version number to the pom.xml
 RUN bash update_patch.sh 1 0 $BUILD_NUM
 
-# Use Maven as the base image
+# Use the same Maven as the base image
 FROM base as builder
 
 # Pass the build num argument from the workflow to the dockerfile
