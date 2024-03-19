@@ -7,7 +7,6 @@ on:
 jobs:
   update_patch:
     steps:
-    - uses: actions/checkout@v3
     - name: Update patch number
       run: bash update_patch.sh 1 0 ${{ github.run_number }}
       
