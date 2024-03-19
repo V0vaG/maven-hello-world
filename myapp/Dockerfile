@@ -16,7 +16,7 @@ RUN mvn package
 FROM openjdk:17-jdk-slim
 
 # Pass the build num argument from the workflow to the dockerfile
-#ARG BUILD_NUM
+ARG BUILD_NUM
 
 # Copy Artifact .jar file from 1st build
 COPY --from=builder /target/myapp-1.0.$BUILD_NUM.jar .
