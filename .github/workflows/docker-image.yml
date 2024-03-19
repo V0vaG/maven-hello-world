@@ -36,11 +36,11 @@ jobs:
       run: docker tag hello:latest vova0911/hello:latest
     
     - name: tag version
-      run: docker tag hello:latest vova0911/hello:$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM
-
-    - name: push version
-      run: docker push vova0911/hello:$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM  
+      run: docker tag hello:latest vova0911/hello:$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM 
       
     - name: push latest
       run: docker push vova0911/hello:latest
+      
+    - name: push version
+      run: docker push vova0911/hello:$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM 
       
