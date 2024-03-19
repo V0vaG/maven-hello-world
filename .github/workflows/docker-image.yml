@@ -5,19 +5,16 @@ on:
     branches: [ "master" ]
 
 jobs:
-  update_patch:
-    steps:
-    - name: Update patch number
-      run: bash update_patch.sh 1 0 ${{ github.run_number }}
-      
   build:
-  	needs: update_patch
     runs-on: ubuntu-latest
      
     steps:
     # Scan directoris & files
     - uses: actions/checkout@v3
     
+    - name: Update pach number
+      run: bash update_pach.sh 1 0 ${{ github.run_number }}
+      
     - name: Build the Docker image
       run: docker build --build-arg BUILD_NUM=${{ github.run_number }} -t hello:latest ./myapp
       
