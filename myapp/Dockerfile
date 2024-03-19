@@ -7,9 +7,6 @@ ARG BUILD_NUM
 # Copy the Maven project into the Docker image
 COPY . .
 
-RUN pwd
-RUN ls
-
 # Run script to set the version number to the pom.xml
 RUN bash update_patch.sh 1 0 $BUILD_NUM
 
@@ -20,7 +17,7 @@ FROM maven:openjdk as builder
 ARG BUILD_NUM
 
 # Copy the Maven project into the Docker image
-COPY --from=base /target/myapp-1.0.$BUILD_NUM.jar .
+COPY --from=base . .
 
 # Run the build
 RUN mvn package
@@ -32,7 +29,7 @@ FROM openjdk:17-jdk-slim
 ARG BUILD_NUM
 
 # Copy Artifact .jar file from 1st build
-COPY --from=builder . .
+COPY --from=builder /target/myapp-1.0.$BUILD_NUM.jar .
 
 # Add new user
 RUN adduser vova-kepler
