@@ -1,6 +1,7 @@
 # Use Maven as the base image
 FROM maven:openjdk as builder
 
+# Pass the build num argument from the workflow to the dockerfile
 ARG BUILD_NUM
 
 # Copy the Maven project into the Docker image
