@@ -23,5 +23,5 @@ RUN adduser vova-kepler
 USER vova-kepler
 
 # Run the .jar file
-CMD java -jar *.jar
+ENTRYPOINT java -jar *.jar
 
