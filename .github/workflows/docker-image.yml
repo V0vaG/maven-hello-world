@@ -10,8 +10,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Update pach number
-      #run: bash update_patch.sh 1 0 ${{ github.run_number }}
-      run: echo "123"
+      run: bash update_patch.sh 1 0 ${{ github.run_number }}
+      #run: echo "123"
     
   build:
     needs: patch
