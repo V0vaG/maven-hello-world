@@ -11,7 +11,7 @@ COPY . .
 RUN bash update_patch.sh 1 0 $BUILD_NUM
 
 # Use Maven as the base image
-FROM maven:openjdk as builder
+FROM base as builder
 
 # Pass the build num argument from the workflow to the dockerfile
 ARG BUILD_NUM
