@@ -23,7 +23,7 @@ jobs:
         password: ${{ secrets.DOCKER_HUB_T }}        
     
     - name: Build the Docker image
-      run: docker build --build-arg BUILD_NUM=$run_num -t hello:latest ./myapp
+      run: docker build --build-arg BUILD_NUM=${{ github.run_number }} -t hello:latest ./myapp
       
     - name: run_images
       run: docker run --name hello_vova hello:latest

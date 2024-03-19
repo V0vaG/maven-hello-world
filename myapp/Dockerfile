@@ -1,12 +1,6 @@
 # Use Maven as the base image
 FROM maven:openjdk as builder
 
-# Add new user
-#RUN adduser vova
-
-# Set the non-root user as the default user
-#USER vova
-
 # Copy the Maven project into the Docker image
 COPY . .
 
@@ -19,7 +13,7 @@ FROM openjdk:17-jdk-slim
 # Pass the build num argument from the workflow to the dockerfile
 ARG BUILD_NUM
 
-#Copy Artifact .jar file from 1st build
+# Copy Artifact .jar file from 1st build
 COPY --from=builder /target/myapp-1.0.0.jar .
 
 # Rename add the .jar file_name the build_number
@@ -31,8 +25,6 @@ RUN adduser vova-kepler
 # Set the non-root user as the default user
 USER vova-kepler
 
-#CMD ls
-#CMD whoami
+# Run the .jar file
 CMD java -jar *.jar
-
 
