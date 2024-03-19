@@ -7,6 +7,7 @@ ARG BUILD_NUM
 # Copy the Maven project into the Docker image
 COPY . .
 
+RUN pwd
 RUN ls
 
 # Run script to set the version number to the pom.xml
