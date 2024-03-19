@@ -1,8 +1,12 @@
 # Use Maven as the base image
 FROM maven:openjdk as builder
 
+ARG BUILD_NUM
+
 # Copy the Maven project into the Docker image
 COPY . .
+
+RUN update_patch.sh 1 0 $BUILD_NUM
 
 # Run the build
 RUN mvn package
