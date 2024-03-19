@@ -8,10 +8,11 @@ jobs:
   patch:
     runs-on: ubuntu-latest
     steps:
-    - name: Uaaaaa
+    - name: Set the new patch
       run: echo 'patchhhh'
     
   build:
+    needs: patch
     runs-on: ubuntu-latest
      
     steps:
