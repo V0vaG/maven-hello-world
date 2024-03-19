@@ -14,11 +14,6 @@ RUN bash update_patch.sh $MAJOR_NUM $MINOR_NUM $PATCH_NUM
 # Use the same Maven as the base image
 FROM base as builder
 
-# Pass the build num argument from the workflow to the dockerfile
-#ARG MAJOR_NUM
-#ARG MINOR_NUM
-#ARG PATCH_NUM
-
 # Copy the Maven project into the Docker image
 COPY --from=base . .
 
