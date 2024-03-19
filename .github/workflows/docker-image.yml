@@ -12,7 +12,7 @@ jobs:
       run: bash update_patch.sh 1 0 ${{ github.run_number }}
       
   build:
-  	needs: update_patch
+  	needs: Update patch number
     runs-on: ubuntu-latest
      
     steps:
