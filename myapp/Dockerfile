@@ -6,7 +6,7 @@ ARG BUILD_NUM
 # Copy the Maven project into the Docker image
 COPY . .
 
-#RUN ls
+# Run script to set the version number to the pom.xml
 RUN bash update_patch.sh 1 0 $BUILD_NUM
 
 # Run the build

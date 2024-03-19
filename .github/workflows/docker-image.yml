@@ -10,11 +10,8 @@ jobs:
      
     steps:
     # Scan directoris & files
-    - uses: actions/checkout@v3
-    
-    #- name: Update pach number
-     # run: bash update_patch.sh 1 0 ${{ github.run_number }}
-      
+   # - uses: actions/checkout@v3
+   
     - name: Build the Docker image
       run: docker build --build-arg BUILD_NUM=${{ github.run_number }} -t hello:latest ./myapp
       
