@@ -14,10 +14,10 @@ FROM openjdk:17-jdk-slim
 ARG BUILD_NUM
 
 # Copy Artifact .jar file from 1st build
-COPY --from=builder /target/myapp-1.0.0.jar .
+COPY --from=builder /target/myapp-1.0.$BUILD_NUM.jar .
 
 # Rename add the .jar file_name the build_number
-RUN mv myapp-1.0.0.jar myapp-1.0.$BUILD_NUM.jar
+#RUN mv myapp-1.0.0.jar myapp-1.0.$BUILD_NUM.jar
 
 # Add new user
 RUN adduser vova-kepler
