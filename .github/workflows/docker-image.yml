@@ -5,14 +5,14 @@ on:
     branches: [ "master" ]
 
 jobs:
-  update_patch_at_pom.xml:
+  update_patch:
     steps:
     - uses: actions/checkout@v3
     - name: Update patch number
       run: bash update_patch.sh 1 0 ${{ github.run_number }}
       
   build:
-  	needs: update_patch_at_pom.xml
+  	needs: update_patch
     runs-on: ubuntu-latest
      
     steps:
