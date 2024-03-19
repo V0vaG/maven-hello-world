@@ -38,6 +38,3 @@ jobs:
       
     - name: push version
       run: docker push vova0911/hello:1.0.${{ github.run_number }}
-      
-    
-
