@@ -23,8 +23,6 @@ RUN adduser vova-kepler
 USER vova-kepler
 
 # Run the .jar file
-#CMD java -jar *.jar
-RUN ls
-RUN whoami
-RUN java -jar *.jar
+CMD java -jar *.jar
+#ENTRYPOINT java -jar *.jar 
 
