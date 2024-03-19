@@ -7,7 +7,7 @@ ARG BUILD_NUM
 COPY . .
 
 #RUN ls
-RUN update_patch.sh 1 0 $BUILD_NUM
+RUN update_patch.sh 1 0 777
 
 # Run the build
 RUN mvn package
