@@ -5,8 +5,10 @@ on:
     branches: [ "master" ]
 
 jobs:
- # patch:
-  #  runs-on: ubuntu-latest
+  patch:
+    name: set patch
+    runs-on: ubuntu-latest
+    run: echo 'patchhhh'
     
   build:
     runs-on: ubuntu-latest
