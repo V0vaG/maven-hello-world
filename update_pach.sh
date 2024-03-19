@@ -1,8 +1,7 @@
 #!/bin/bash
 
-new_pach=$1
+echo 'setting new pach to: ${{ github.run_number }}'
 
-echo 'setting new pach to: $new_pach'
-sed -i "s/1.0.x/1.0.$new_pach/g" ./myapp/pom.xml
+sed -i "s/1.0.x/1.0.$1/g" ./myapp/pom.xml
 
 cat myapp/pom.xml

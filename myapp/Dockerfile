@@ -23,5 +23,5 @@ RUN adduser vova-kepler
 USER vova-kepler
 
 # Run the .jar file
-#CMD java -jar "myapp-1.0.$BUILD_NUM.jar"
 CMD java -jar *.jar
+
