@@ -4,6 +4,10 @@ on:
   push:
     branches: [ "master" ]
 
+env:
+  MAJOR_NUM: '1'
+  MINOR_NUM: '2'
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,7 +17,7 @@ jobs:
     - uses: actions/checkout@v3
    
     - name: Build the Docker image
-      run: docker build --build-arg PATCH_NUM=${{ github.run_number }} --build-arg MAJOR_NUM=1 --build-arg MINOR_NUM=2 -t hello:latest ./myapp
+      run: docker build --build-arg PATCH_NUM=${{ github.run_number }} --build-arg MAJOR_NUM=$MAJOR_NUM --build-arg MINOR_NUM=$MINOR_NUM -t hello:latest ./myapp
       
     - name: show_image
       run: docker images
@@ -28,13 +32,13 @@ jobs:
         password: ${{ secrets.DOCKER_HUB_T }}        
     
     - name: tag version
-      run: docker tag hello:latest vova0911/hello:1.0.${{ github.run_number }}
+      run: docker tag hello:latest vova0911/hello:$MAJOR_NUM.$MINOR_NUM.${{ github.run_number }}
       
     - name: tag latest
       run: docker tag hello:latest vova0911/hello:latest
      
     - name: push version
-      run: docker push vova0911/hello:1.0.${{ github.run_number }}  
+      run: docker push vova0911/hello:$MAJOR_NUM.$MINOR_NUM.${{ github.run_number }}  
       
     - name: push latest
       run: docker push vova0911/hello:latest
