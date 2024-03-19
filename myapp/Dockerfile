@@ -9,7 +9,7 @@ ARG PATCH_NUM
 COPY . .
 
 # Run script to set the version number to the pom.xml
-RUN bash update_patch.sh 1 0 $PATCH_NUM
+RUN bash update_patch.sh $MAJOR_NUM $MINOR_NUM $PATCH_NUM
 
 # Use the same Maven as the base image
 FROM base as builder
@@ -35,7 +35,7 @@ ARG MINOR_NUM
 ARG PATCH_NUM
 
 # Copy Artifact .jar file from 1st build
-COPY --from=builder /target/myapp-1.0.$PATCH_NUM.jar .
+COPY --from=builder /target/myapp-$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM.jar .
 
 # Add new user
 RUN adduser vova-kepler
