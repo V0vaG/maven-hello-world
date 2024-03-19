@@ -7,8 +7,9 @@ on:
 jobs:
   patch:
     runs-on: ubuntu-latest
-    - uses: actions/checkout@v3
+    
     steps:
+    - uses: actions/checkout@v3
     - name: Set the new patch
       run: echo 'patchhhh'
       
