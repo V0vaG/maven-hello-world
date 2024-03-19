@@ -2,19 +2,22 @@
 FROM maven:openjdk as base
 
 # Pass the build num argument from the workflow to the dockerfile
-ARG BUILD_NUM
-
+ARG MAJOR_NUM
+ARG MINOR_NUM
+ARG PATCH_NUM
 # Copy the Maven project into the Docker image
 COPY . .
 
 # Run script to set the version number to the pom.xml
-RUN bash update_patch.sh 1 0 $BUILD_NUM
+RUN bash update_patch.sh 1 0 $PATCH_NUM
 
 # Use the same Maven as the base image
 FROM base as builder
 
 # Pass the build num argument from the workflow to the dockerfile
-ARG BUILD_NUM
+ARG MAJOR_NUM
+ARG MINOR_NUM
+ARG PATCH_NUM
 
 # Copy the Maven project into the Docker image
 COPY --from=base . .
@@ -26,10 +29,13 @@ RUN mvn package
 FROM openjdk:17-jdk-slim
 
 # Pass the build num argument from the workflow to the dockerfile
-ARG BUILD_NUM
+
+ARG MAJOR_NUM
+ARG MINOR_NUM
+ARG PATCH_NUM
 
 # Copy Artifact .jar file from 1st build
-COPY --from=builder /target/myapp-1.0.$BUILD_NUM.jar .
+COPY --from=builder /target/myapp-1.0.$PATCH_NUM.jar .
 
 # Add new user
 RUN adduser vova-kepler
