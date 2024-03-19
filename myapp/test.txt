@@ -1,5 +1,0 @@
-11111
-22222
-<version>1.0.x</version>
-aaaa
-bbbb
