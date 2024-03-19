@@ -27,15 +27,17 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_U }}
         password: ${{ secrets.DOCKER_HUB_T }}        
     
-    - name: commit version
-      run: docker commit -a "hello_vova" hello_vova vova0911/hello:1.0.${{ github.run_number }}
+   # - name: commit version
+   #   run: docker commit -a "hello_vova" hello_vova vova0911/hello:1.0.${{ github.run_number }}
       
-    - name: commit latest
-      run: docker commit -a "hello_vova" hello_vova vova0911/hello:latest
-
+   # - name: commit latest
+    #  run: docker commit -a "hello_vova" hello_vova vova0911/hello:latest
+    - name: latest_tag
+      run: docker tag hello:latest vova0911/hello:latest111
+      
     - name: push version
       run: docker push vova0911/hello:1.0.${{ github.run_number }}
       
-    - name: push latest
-      run: docker push vova0911/hello:latest
+   # - name: push latest
+    #  run: docker push vova0911/hello:latest
 
