@@ -15,6 +15,9 @@ jobs:
     - name: Build the Docker image
       run: docker build --build-arg BUILD_NUM=${{ github.run_number }} -t hello:latest ./myapp
       
+    - name: show_image
+      run: docker images
+      
     - name: run_image
       run: docker run --name hello_vova hello:latest
 
