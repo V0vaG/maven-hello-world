@@ -39,5 +39,5 @@ RUN adduser vova-kepler
 USER vova-kepler
 
 # Run the .jar file
-CMD java -jar myapp-$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM.jar
+CMD java -jar *.jar
 
