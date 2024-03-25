@@ -44,3 +44,4 @@ jobs:
     - name: push version
       run: docker push vova0911/hello:$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM 
       
+      
