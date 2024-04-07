@@ -9,18 +9,11 @@ ARG PATCH_NUM
 # Copy the Maven project into the Docker image
 COPY . .
 
-# Run script to set the version number to the pom.xml
-#RUN bash update_patch.sh $MAJOR_NUM $MINOR_NUM $PATCH_NUM
+# Set the version number to the pom.xml
 RUN sed -i "s/x.y.z/$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM/g" ./pom.xml
+
+#Show pom.xml file
 RUN cat ./pom.xml
-RUN ls
-RUN pwd
-
-# Use the same Maven as the base image
-FROM base as builder
-
-# Copy the Maven project into the Docker image
-COPY --from=base . .
 
 # Run the build
 RUN mvn package
