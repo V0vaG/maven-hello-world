@@ -10,7 +10,8 @@ ARG PATCH_NUM
 COPY . .
 
 # Run script to set the version number to the pom.xml
-RUN bash update_patch.sh $MAJOR_NUM $MINOR_NUM $PATCH_NUM
+#RUN bash update_patch.sh $MAJOR_NUM $MINOR_NUM $PATCH_NUM
+RUN sed -i "s/x.y.z/$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM/g" pom.xml
 
 # Use the same Maven as the base image
 FROM base as builder
