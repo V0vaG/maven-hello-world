@@ -1,5 +1,5 @@
 # Use Maven as the base image
-FROM maven:openjdk as base
+FROM maven:openjdk as builder
 
 # Pass the build num argument from the workflow to the dockerfile
 ARG MAJOR_NUM

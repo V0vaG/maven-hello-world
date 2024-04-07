@@ -23,9 +23,6 @@ jobs:
     - name: show_image
       run: docker images
       
-    #- name: show_xml
-    #  run: cat /myapp/pom.xml
-      
     - name: run_image
       run: docker run --name hello_vova hello:latest
 
