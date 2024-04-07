@@ -30,6 +30,10 @@ ARG MAJOR_NUM
 ARG MINOR_NUM
 ARG PATCH_NUM
 
+ENV MAJOR_NUM=$MAJOR_NUM
+ENV MINOR_NUM=$MINOR_NUM
+ENV PATCH_NUM=$PATCH_NUM
+
 # Copy Artifact .jar file from 1st build
 COPY --from=builder /target/myapp-$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM.jar .
 
@@ -40,5 +44,5 @@ RUN adduser vova-kepler
 USER vova-kepler
 
 # Run the .jar file
-CMD java -jar *.jar
+CMD java -jar myapp-$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM.jar
 
